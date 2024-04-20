@@ -70,7 +70,9 @@ def handle_userinput(user_question):
 
 
 def main():
-    os.environ["OPENAI_API_KEY"] = "" # ADD YOUR KEY HERE
+    with open('key.txt', 'r') as file: 
+        line = file.readline()
+    os.environ["OPENAI_API_KEY"] = line
     st.set_page_config(page_title="Chat with multiple PDFs",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)

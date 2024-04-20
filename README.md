@@ -1,6 +1,6 @@
-# ChatPDF 📄✨
+# Arara 📄🦜
 
-Welcome to ChatPDF - your interactive PDF assistant powered by OpenAI's cutting-edge language model! ChatPDF enables you to interact with your PDFs in a whole new way, extracting information, summarizing content, and much more.
+Welcome to Arara - your interactive PDF assistant powered by OpenAI's cutting-edge language model! ChatPDF enables you to interact with your PDFs in a whole new way, extracting information, summarizing content, and much more.
 
 ## Getting Started 🚀
 
@@ -14,13 +14,13 @@ To interact with the OpenAI model, you will need an API key. Follow these steps 
 
 ### Step 2: Set Your API Key 🛠️
 
-Once you have your API key, you'll need to configure the application to use it. In the `app.py` file, find the line that looks like this:
+Once you have your API key, you'll need to configure the application to use it. Create a new file with the name `key.txt`, add your OpenAI API key there. For example:
 
-```python
-os.environ["OPENAI_API_KEY"] = "sk-r7QTNcbEeRBAub8quuJAT3BlbkFJQNnPTgSaUVvGhxxxx"
+```txt
+sk-r7QTNcbEeRBAub8quuJAT3BlbkFJQNnPTgSaUVvGhxxxx
 ```
 
-Replace the placeholder key with your actual API key.
+Replace the placeholder key with your actual API key. Make sure this file is in the root folder of your project and it contains only your key.
 
 ### Step 3: Install Dependencies 📦
 
@@ -38,7 +38,7 @@ With your API key set and dependencies installed, you're ready to start the appl
 streamlit run app.py
 ```
 
-The application should now be up and running on your local server. Open your web browser and go to the address indicated by Streamlit (usually `http://localhost:8501`) to start using ChatPDF.
+The application should now be up and running on your local server. Open your web browser and go to the address indicated by Streamlit (usually `http://localhost:8501`) to start using Arara.
 
 ## Features 🌈
 
