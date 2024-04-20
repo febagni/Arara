@@ -1,8 +1,10 @@
 # Arara 📄🦜
 
-## Summary
+![Project Logo](images/logo.png)
 
 Welcome to Arara - your interactive PDF assistant powered by OpenAI's cutting-edge language model! ChatPDF enables you to interact with your PDFs in a whole new way, extracting information, summarizing content, and much more.
+
+## Summary
 
  Below is a summary of the contents you can find in this README:
 
@@ -115,4 +117,4 @@ This project is licensed under the MIT License. This means you are free to use, 
     The software is provided "as is," without any express or implied warranty of any kind.
     You must include the original copyright notice and the permission notice from the MIT License in all copies or substantial portions of the software.
 
-You can find the full text of the MIT License in the LICENSE file in this repository. Please read the file for the complete terms and conditions. If you have any questions or concerns about the license, feel free to contact the repository maintainer.
+You can find the full text of the MIT License in the [LICENSE](LICENSE) file in this repository. Please read the file for the complete terms and conditions. If you have any questions or concerns about the license, feel free to contact the repository maintainer.
