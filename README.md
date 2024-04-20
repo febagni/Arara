@@ -1,6 +1,24 @@
 # Arara 📄🦜
 
+## Summary
+
 Welcome to Arara - your interactive PDF assistant powered by OpenAI's cutting-edge language model! ChatPDF enables you to interact with your PDFs in a whole new way, extracting information, summarizing content, and much more.
+
+ Below is a summary of the contents you can find in this README:
+
+- **[Getting Started 🚀](#getting-started-🚀)**: Step-by-step instructions to get you up and running with the project.
+    - **[Step 1: Obtain Your API Key 🔑](#step-1-obtain-your-api-key-🔑)**: Guidance on acquiring your API key to use the project.
+    - **[Step 2: Set Your API Key 🛠️](#step-2-set-your-api-key-🛠️)**: Instructions for setting your API key.
+    - **[Step 3: Install Dependencies 📦](#step-3-install-dependencies-📦)**: Details on installing required dependencies.
+    - **[Step 4: Launch the Application 🌟](#step-4-launch-the-application-🌟)**: Guidance on starting the application.
+
+- **[Features ✨](#features-✨)**: A list of the key features and capabilities of the project.
+
+- **[How to Contribute 🤝](#how-to-contribute-🤝)**: Guidelines for contributing to the project, including how to fork the repository and submit a pull request.
+
+- **[License 📝](#license-📝)**: Information about the project's licensing under the MIT License.
+
+Click on the links above to jump to specific sections for more detailed information. Thank you for using and supporting this project! Let us know if you have any questions or feedback.
 
 ## Getting Started 🚀
 
@@ -40,7 +58,7 @@ streamlit run app.py
 
 The application should now be up and running on your local server. Open your web browser and go to the address indicated by Streamlit (usually `http://localhost:8501`) to start using Arara.
 
-## Features
+## Features ✨
 
 ChatPDF comes with a plethora of features designed to make your interaction with PDF documents as smooth as possible:
 
@@ -48,7 +66,7 @@ ChatPDF comes with a plethora of features designed to make your interaction with
 - **Content Summarization**: Get concise summaries of lengthy documents.
 - **Q&A with your PDF**: Ask questions and get answers based on the content of your PDFs.
 
-## How to Contribute
+## How to Contribute 🤝
 
 We welcome contributions from the community to help improve this project. If you're interested in contributing, please follow the guidelines below:
 
@@ -90,7 +108,7 @@ We welcome contributions from the community to help improve this project. If you
 
 Thank you for your interest in contributing! We appreciate your time and effort in helping to improve this project. If you have any questions, feel free to reach out to the repository maintainers.
 
-## License
+## License 📝
 
 This project is licensed under the MIT License. This means you are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, subject to the following conditions:
 
