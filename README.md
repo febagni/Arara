@@ -40,10 +40,61 @@ streamlit run app.py
 
 The application should now be up and running on your local server. Open your web browser and go to the address indicated by Streamlit (usually `http://localhost:8501`) to start using Arara.
 
-## Features 🌈
+## Features
 
 ChatPDF comes with a plethora of features designed to make your interaction with PDF documents as smooth as possible:
 
 - **Information Extraction**: Pull out key details or data from your PDF files.
 - **Content Summarization**: Get concise summaries of lengthy documents.
 - **Q&A with your PDF**: Ask questions and get answers based on the content of your PDFs.
+
+## How to Contribute
+
+We welcome contributions from the community to help improve this project. If you're interested in contributing, please follow the guidelines below:
+
+1. **Fork the repository**: Create a fork of this repository to your GitHub account.
+
+2. **Clone your fork**: Clone your fork to your local machine using `git clone`:
+
+    ```shell
+    git clone https://github.com/your-username/your-repository.git
+    ```
+
+3. **Create a branch**: Create a new branch for your contribution:
+
+    ```shell
+    git checkout -b your-branch-name
+    ```
+
+4. **Make your changes**: Implement your desired changes on your branch.
+
+5. **Commit your changes**: Commit your changes with a descriptive commit message:
+
+    ```shell
+    git commit -m "Describe your changes"
+    ```
+
+6. **Push your changes**: Push your branch to your forked repository:
+
+    ```shell
+    git push origin your-branch-name
+    ```
+
+7. **Submit a pull request**: Once your changes are ready for review, open a pull request (PR) on GitHub. Include a clear description of your changes and any relevant information for the maintainers to review.
+
+8. **Follow the coding standards and guidelines**: Ensure your code follows any coding standards and guidelines specified in the project.
+
+9. **Participate in the review process**: Be open to feedback from maintainers and other contributors. Respond to comments and make adjustments to your code as needed.
+
+10. **Stay respectful**: We aim to foster a welcoming and inclusive environment. Please be respectful in all interactions with other contributors and maintainers.
+
+Thank you for your interest in contributing! We appreciate your time and effort in helping to improve this project. If you have any questions, feel free to reach out to the repository maintainers.
+
+## License
+
+This project is licensed under the MIT License. This means you are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, subject to the following conditions:
+
+    The software is provided "as is," without any express or implied warranty of any kind.
+    You must include the original copyright notice and the permission notice from the MIT License in all copies or substantial portions of the software.
+
+You can find the full text of the MIT License in the LICENSE file in this repository. Please read the file for the complete terms and conditions. If you have any questions or concerns about the license, feel free to contact the repository maintainer.
