@@ -13,12 +13,11 @@ from streamlit_pdf_viewer import pdf_viewer
 import os
 from io import BytesIO
 
-def get_pdf_text(pdf_docs):
+def get_pdf_text(pdf):
     text = ""
-    for pdf in pdf_docs:
-        pdf_reader = PdfReader(pdf)
-        for page in pdf_reader.pages:
-            text += page.extract_text()
+    pdf_reader = PdfReader(pdf)
+    for page in pdf_reader.pages:
+        text += page.extract_text()
     return text
 
 
@@ -85,6 +84,9 @@ def handle_streamlit_config():
     logo = open('images/logo.png', 'rb').read()
     st.image(logo)
 
+def call_pdf_render():
+    pdf_viewer("CS.pdf",width=700, height=500, pages_to_render=[1])
+
 def handle_user_question(current_page): # edit here
 
     # Display the current page number
@@ -116,12 +118,9 @@ def handle_side_bar():
         st.subheader("Your documents")
         # uploaded_file = st.file_uploader("Upload a PDF file", type="pdf")
         uploaded_file = st.file_uploader(
-            "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
+            "Upload your PDFs here and click on 'Process'", type="pdf")
         if st.button("Process"):
             with st.spinner("Processing"):
-
-                if uploaded_file:
-                    flag = True
 
                 # get pdf text
                 raw_text = get_pdf_text(uploaded_file)
@@ -135,7 +134,4 @@ def handle_side_bar():
 
                 # create conversation chain
                 st.session_state.conversation = get_conversation_chain(vectorstore)
-    if flag:
-        current_page = 0
-        handle_user_question(current_page)
 
