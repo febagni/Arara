@@ -10,7 +10,7 @@ programmed to receive a set of slides and provide a personalized study experienc
 stimulating the student with questions and flashcard proposals rather than giving them pre-made
 solutions or short-cuts, fostering their critical reasoning as the final goal.
 
-It is the solution of the TropiCoders team composed by Carol Iplinsky, Felipe Azank, Felipe Bagni and Marcos Petrucci for the Politecnico di Milano's GDSC Hackathon 2024.
+It is the solution of the TropiCoders team composed by [Carol Iplinsky](https://www.linkedin.com/in/caroliplinsky/), [Felipe Azank](https://www.linkedin.com/in/felipeazank/?locale=en_US), [Felipe Bagni](https://www.linkedin.com/in/felipe-bagni/) and [Marcos Petrucci](https://www.linkedin.com/in/marcospetrucci/) for the [Google Developer Student Club @Politecnico di Milano](https://gdsc.community.dev/polytechnic-university-of-milano-milan-italy/) [AI Hackathon 2024](https://gdsc.community.dev/events/details/developer-student-clubs-politecnico-di-milano-presents-gdsc-ai-hack-2024/).
 
 ## Summary
 
