@@ -9,7 +9,9 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from html_template import css, bot_template, user_template
 from langchain.llms import HuggingFaceHub
+from streamlit_pdf_viewer import pdf_viewer
 import os
+from io import BytesIO
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -67,14 +69,10 @@ def handle_userinput(user_question):
         else:
             st.write(bot_template.replace(
                 "{{MSG}}", message.content), unsafe_allow_html=True)
-
-
-def main():
-    with open('key.txt', 'r') as file: 
-        line = file.readline()
-    os.environ["OPENAI_API_KEY"] = line
-    st.set_page_config(page_title="Chat with multiple PDFs",
-                       page_icon=":books:")
+            
+def handle_streamlit_config():
+    st.set_page_config(page_title="Chat with Arara",
+                       page_icon=":parrot:")
     st.write(css, unsafe_allow_html=True)
 
     if "conversation" not in st.session_state:
@@ -83,20 +81,50 @@ def main():
         st.session_state.chat_history = None
     if "vector_store_created" not in st.session_state:
         st.session_state.vector_store_created = False
+    st.header("Chat with Arara :parrot:")
+    logo = open('images/logo.png', 'rb').read()
+    st.image(logo)
 
-    st.header("Chat with multiple PDFs :books:")
+def handle_user_question(current_page): # edit here
+
+    # Display the current page number
+    st.write(f"Page {current_page + 1}")
+
+    pdf_viewer("CS.pdf",width=700, height=500, pages_to_render=[1])
+  
+    # Display the current page number
+    st.write(f"Page {current_page + 1}")
+
+    column1, column2 = st.columns([.1,1])
+
+    # Previous Page button
+    if column1.button(":arrow_left:"):
+        st.session_state.current_page = current_page - 1
+ 
+    if column2.button(":arrow_right:"):
+        st.session_state.current_page = current_page + 1
+    
+    st.write("summary")
+    
     user_question = st.text_input("Ask a question about your documents:  (Model: GPT-3.5-turbo · Generated content may be inaccurate or false)")
     if user_question:
         handle_userinput(user_question)
 
+def handle_side_bar():
+    flag = False
     with st.sidebar:
         st.subheader("Your documents")
-        pdf_docs = st.file_uploader(
+        # uploaded_file = st.file_uploader("Upload a PDF file", type="pdf")
+        uploaded_file = st.file_uploader(
             "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
         if st.button("Process"):
             with st.spinner("Processing"):
+
+                if uploaded_file:
+                    flag = True
+
                 # get pdf text
-                raw_text = get_pdf_text(pdf_docs)
+                raw_text = get_pdf_text(uploaded_file)
 
                 # get the text chunks
                 text_chunks = get_text_chunks(raw_text)
@@ -106,9 +134,8 @@ def main():
                 st.session_state.vector_store_created = True
 
                 # create conversation chain
-                st.session_state.conversation = get_conversation_chain(
-                    vectorstore)
+                st.session_state.conversation = get_conversation_chain(vectorstore)
+    if flag:
+        current_page = 0
+        handle_user_question(current_page)
 
-
-if __name__ == '__main__':
-    main()

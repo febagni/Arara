@@ -5,3 +5,4 @@ openai
 faiss-cpu
 python-dotenv
 tiktoken
+streamlit_pdf_viewer
