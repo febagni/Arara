@@ -28,6 +28,10 @@ footer {
 	}
 '''
 
+backgroundColor="#e5e9f4"
+secondaryBackgroundColor="#ffffff"
+textColor="#040404"
+
 bot_template = '''
 <div class="chat-message bot">
     <div class="avatar">

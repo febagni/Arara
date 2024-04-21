@@ -41,8 +41,6 @@ def get_vectorstore(text_chunks):
 
 def get_conversation_chain(vectorstore):
     llm = ChatOpenAI(temperature=0)
-    # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
-
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
@@ -72,7 +70,7 @@ def handle_userinput(user_question, show_user = False):
             
 def handle_streamlit_config():
     st.set_page_config(page_title="Chat with Arara",
-                       page_icon=":parrot:")
+                       page_icon="images/icon.png")
     st.write(css, unsafe_allow_html=True)
 
     if "conversation" not in st.session_state:
@@ -138,27 +136,10 @@ def handle_user_question(): # edit here
         handle_userinput(user_question)
 
 def handle_side_bar():
-    flag = False
     with st.sidebar:
         logo = open('images/logo.png', 'rb').read()
         st.image(logo)
         st.subheader("Your documents")
-        # uploaded_file = st.file_uploader("Upload a PDF file", type="pdf")
-        uploaded_file = st.file_uploader(
-            "Upload your PDF here: ", type="pdf")
-        # if st.button("Process"):
-        #     with st.spinner("Processing"):
+        uploaded_file = st.file_uploader("Upload your PDF here: ", type="pdf")
 
-                # # get pdf text
-                # raw_text = get_pdf_text(uploaded_file)
-
-                # # get the text chunks
-                # text_chunks = get_text_chunks(raw_text)
-
-                # # create vector store
-                # vectorstore = get_vectorstore(text_chunks)
-                # st.session_state.vector_store_created = True
-
-                # # create conversation chain
-                # st.session_state.conversation = get_conversation_chain(vectorstore)
     return uploaded_file
