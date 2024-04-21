@@ -84,27 +84,38 @@ def handle_streamlit_config():
     logo = open('images/logo.png', 'rb').read()
     st.image(logo)
 
-def call_pdf_render():
-    pdf_viewer("CS.pdf",width=700, height=500, pages_to_render=[1])
+def call_pdf_render(page, name):
+    pdf_viewer(name, width=700, height=500, pages_to_render=[page])
+    handle_user_question()
 
-def handle_user_question(current_page): # edit here
-
+def display_pdf_page(pdf_reader, current_page, uploaded_file):
+    # Get the total number of pages in the PDF file
+    num_pages = len(pdf_reader.pages)
+    
     # Display the current page number
-    st.write(f"Page {current_page + 1}")
+    st.write(f"Page {current_page + 1} of {num_pages}")
+    
+    # Display pdf
+    call_pdf_render(current_page + 1, uploaded_file.name)
 
-    pdf_viewer("CS.pdf",width=700, height=500, pages_to_render=[1])
-  
-    # Display the current page number
-    st.write(f"Page {current_page + 1}")
+    process_pdf(uploaded_file)
 
-    column1, column2 = st.columns([.1,1])
+def process_pdf(uploaded_file):
+     # get pdf text
+    raw_text = get_pdf_text(uploaded_file)
 
-    # Previous Page button
-    if column1.button(":arrow_left:"):
-        st.session_state.current_page = current_page - 1
- 
-    if column2.button(":arrow_right:"):
-        st.session_state.current_page = current_page + 1
+    # get the text chunks
+    text_chunks = get_text_chunks(raw_text)
+
+    # create vector store
+    vectorstore = get_vectorstore(text_chunks)
+    st.session_state.vector_store_created = True
+
+    # create conversation chain
+    st.session_state.conversation = get_conversation_chain(vectorstore)
+
+
+def handle_user_question(): # edit here
     
     st.write("summary")
     
@@ -118,20 +129,20 @@ def handle_side_bar():
         st.subheader("Your documents")
         # uploaded_file = st.file_uploader("Upload a PDF file", type="pdf")
         uploaded_file = st.file_uploader(
-            "Upload your PDFs here and click on 'Process'", type="pdf")
-        if st.button("Process"):
-            with st.spinner("Processing"):
+            "Upload your PDF here: ", type="pdf")
+        # if st.button("Process"):
+        #     with st.spinner("Processing"):
 
-                # get pdf text
-                raw_text = get_pdf_text(uploaded_file)
+                # # get pdf text
+                # raw_text = get_pdf_text(uploaded_file)
 
-                # get the text chunks
-                text_chunks = get_text_chunks(raw_text)
+                # # get the text chunks
+                # text_chunks = get_text_chunks(raw_text)
 
-                # create vector store
-                vectorstore = get_vectorstore(text_chunks)
-                st.session_state.vector_store_created = True
+                # # create vector store
+                # vectorstore = get_vectorstore(text_chunks)
+                # st.session_state.vector_store_created = True
 
-                # create conversation chain
-                st.session_state.conversation = get_conversation_chain(vectorstore)
-
+                # # create conversation chain
+                # st.session_state.conversation = get_conversation_chain(vectorstore)
+    return uploaded_file
