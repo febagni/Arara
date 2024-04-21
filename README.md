@@ -2,7 +2,15 @@
 
 ![Project Logo](images/logo.png)
 
-Welcome to Arara - your interactive PDF assistant powered by OpenAI's cutting-edge language model! ChatPDF enables you to interact with your PDFs in a whole new way, extracting information, summarizing content, and much more.
+
+Arara is a cost-effective, web-based, AI powered self studying solution for students. We first
+envisioned how we could apply LLMs to make learning engaging and bring the student to an active
+perspective, increasing final retention. To make this feasible, we implemented a modded GPT3.5
+programmed to receive a set of slides and provide a personalized study experience based on it,
+stimulating the student with questions and flashcard proposals rather than giving them pre-made
+solutions or short-cuts, fostering their critical reasoning as the final goal.
+
+It is the solution of the TropiCoders team composed by Carol Iplinsky, Felipe Azank, Felipe Bagni and Marcos Petrucci for the Politecnico di Milano's GDSC Hackathon 2024.
 
 ## Summary
 
