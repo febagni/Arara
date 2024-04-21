@@ -131,7 +131,7 @@ def handle_user_question(): # edit here
     if b2:
         handle_userinput(follow_up)
     
-    user_question = st.text_input("Ask me aditional questions about this material: ") + ". Be friendly and act as a tutor and try making me engage with the material to help me understand"
+    user_question = st.text_input("Ask me aditional questions about this material: ") + ". Be friendly and act as a tutor and try making me engage with the material to help me understand and try making questions when possible"
     if user_question:
         handle_userinput(user_question)
 
