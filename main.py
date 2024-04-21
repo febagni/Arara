@@ -37,6 +37,8 @@ def main():
             
             # Display the current page
             display_pdf_page(pdf_reader, current_page, uploaded_file)
+
+            handle_user_question()
             
 
 if __name__ == '__main__':

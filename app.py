@@ -48,12 +48,12 @@ def get_conversation_chain(vectorstore):
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
         retriever=vectorstore.as_retriever(),
-        memory=memory
+        memory=memory,
     )
     return conversation_chain
 
 
-def handle_userinput(user_question):
+def handle_userinput(user_question, show_user = False):
     if(st.session_state.vector_store_created==False):
         st.error("The PDFs where not loaded properly..... please try reloading them again",  icon="🚨")
         return
@@ -62,10 +62,11 @@ def handle_userinput(user_question):
     st.session_state.chat_history = response['chat_history']
 
     for i, message in reversed(list(enumerate(st.session_state.chat_history))):
-        if i % 2 == 0:
+        if i % 2 == 0 and show_user:
+            pass
             st.write(user_template.replace(
                 "{{MSG}}", message.content), unsafe_allow_html=True)
-        else:
+        elif i % 2 == 1:
             st.write(bot_template.replace(
                 "{{MSG}}", message.content), unsafe_allow_html=True)
             
@@ -81,12 +82,10 @@ def handle_streamlit_config():
     if "vector_store_created" not in st.session_state:
         st.session_state.vector_store_created = False
     st.header("Chat with Arara :parrot:")
-    logo = open('images/logo.png', 'rb').read()
-    st.image(logo)
 
 def call_pdf_render(page, name):
     pdf_viewer(name, width=700, height=500, pages_to_render=[page])
-    handle_user_question()
+    #handle_user_question()
 
 def display_pdf_page(pdf_reader, current_page, uploaded_file):
     # Get the total number of pages in the PDF file
@@ -116,16 +115,33 @@ def process_pdf(uploaded_file):
 
 
 def handle_user_question(): # edit here
+
+    b1 = st.button("Let's start learning!")
+
+    b2 = st.button("I want to build flashcards!")
+
+# TODOS: histórico das respostas, esconder as perguntas de prompt, take a look on this matter of the memory
+
+    follow_up = "Give me topics to make flashcards about this material. Start by saying that you are happy for the journey with me and that I should keep up, say it's all about the analyzed pdf and that you are here to help on enhancing the understanding, without shortcuts"
+
+    initial_question = "Start saying hello and being cordial. Explaining why is it important to understand this concept for a computer scientist, say that you can comment slide by slide and enrich the experience using an iteractive apporach, say that you can ask any question for help as well, start by making a opening question to me to grasp by attention. Show me as well the main bullet points of the material"
+
+
+    if b1:
+        handle_userinput(initial_question)
+
+    if b2:
+        handle_userinput(follow_up)
     
-    st.write("summary")
-    
-    user_question = st.text_input("Ask a question about your documents:  (Model: GPT-3.5-turbo · Generated content may be inaccurate or false)")
+    user_question = st.text_input("Ask me aditional questions about this material: ") + ". Be friendly and act as a tutor and try making me engage with the material to help me understand"
     if user_question:
         handle_userinput(user_question)
 
 def handle_side_bar():
     flag = False
     with st.sidebar:
+        logo = open('images/logo.png', 'rb').read()
+        st.image(logo)
         st.subheader("Your documents")
         # uploaded_file = st.file_uploader("Upload a PDF file", type="pdf")
         uploaded_file = st.file_uploader(
