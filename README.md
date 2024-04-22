@@ -66,7 +66,9 @@ With your API key set and dependencies installed, you're ready to start the appl
 streamlit run app.py
 ```
 
-The application should now be up and running on your local server. Open your web browser and go to the address indicated by Streamlit (usually `http://localhost:8501`) to start using Arara.
+The application should now be up and running on your local server. Open your web browser and go to the address indicated by Streamlit (usually `http://localhost:8501`) to start using Arara. 
+
+Currently, the pdf file to be uploaded must be on the root directory of the project.
 
 ## Features ✨
 
