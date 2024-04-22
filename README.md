@@ -30,6 +30,8 @@ It is the solution of the TropiCoders team composed by [Carol Iplinsky](https://
 
 Click on the links above to jump to specific sections for more detailed information. Thank you for using and supporting this project! Let us know if you have any questions or feedback.
 
+![arara](https://github.com/febagni/Arara/assets/53188519/98761d47-ffb1-4267-82b2-95f67fd76917)
+
 ## Getting Started 🚀
 
 ### Step 1: Obtain Your API Key 🔑
